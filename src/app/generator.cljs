@@ -10,11 +10,19 @@
                 pathname
                 p
                 (string/replace p (re-pattern "/:\\w+") "$")
+                (string/replace
+                 p
+                 (re-pattern "-\\w")
+                 (fn [x] (str (string/upper-case (subs x 1 2)) (subs x 2))))
                 (string/replace p "/" "_")
-                (string/replace p (re-pattern "-\\w") (fn [x] (subs x 1)))
                 (str "go" p)
-                (string/replace p "go_plants$" "go$"))]
-    (<< "export function ~{f-name}(~{params-list}) {\n  router.goPath(\"~{pathname}\")\n}\n")))
+                (string/replace p "go_plants$" "go$"))
+        pathname-text (string/replace
+                       pathname
+                       (re-pattern ":\\w+")
+                       (fn [x] (<< "${~(subs x 1)}")))]
+    (<<
+     "export function ~{f-name}(~{params-list}) {\n  router.goPath(`~{pathname-text}`);\n}\n")))
 
 (defn traverse-rules! [prefix base-path rules collect!]
   (doseq [rule rules]
