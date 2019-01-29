@@ -21,8 +21,7 @@
                        pathname
                        (re-pattern ":\\w+")
                        (fn [x] (<< "${~(subs x 1)}")))]
-    (<<
-     "export function ~{f-name}(~{params-list}) {\n  router.goPath(`~{pathname-text}`);\n}\n")))
+    (<< "export function ~{f-name}(~{params-list}) {\n  switchPath(`~{pathname-text}`);\n}\n")))
 
 (defn traverse-rules! [prefix base-path rules collect!]
   (doseq [rule rules]

@@ -1130,7 +1130,7 @@
           :type :expr, :by "root", :at 1548386495976, :id "vuWG-Dvi0JY"
           :data {
            "T" {:type :leaf, :by "root", :at 1548386495976, :text "<<", :id "kurdSAJqL4n"}
-           "j" {:type :leaf, :by "root", :at 1548646681953, :text "\"export function ~{f-name}(~{params-list}) {\n  router.goPath(`~{pathname-text}`);\n}\n", :id "oV0TzVATwg3"}
+           "j" {:type :leaf, :by "root", :at 1548738929406, :text "\"export function ~{f-name}(~{params-list}) {\n  switchPath(`~{pathname-text}`);\n}\n", :id "oV0TzVATwg3"}
           }
          }
         }
