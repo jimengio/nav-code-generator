@@ -1064,21 +1064,13 @@
                  "v" {:type :leaf, :by "root", :at 1548386495976, :text "\"_", :id "2VZjUbrgKCY"}
                 }
                }
-               "yT" {
-                :type :expr, :by "root", :at 1548386495976, :id "dHbkSyzFkqa"
-                :data {
-                 "T" {:type :leaf, :by "root", :at 1548386495976, :text "str", :id "nbhQzA4qm4j"}
-                 "j" {:type :leaf, :by "root", :at 1548386495976, :text "\"go", :id "V8_4aYrfaBH"}
-                 "r" {:type :leaf, :by "root", :at 1548386495976, :text "p", :id "4J61NU2PM6f"}
-                }
-               }
                "yj" {
                 :type :expr, :by "root", :at 1548386495976, :id "795qgFCpllG"
                 :data {
                  "T" {:type :leaf, :by "root", :at 1548386495976, :text "string/replace", :id "i9ktjQarvKp"}
                  "j" {:type :leaf, :by "root", :at 1548386495976, :text "p", :id "ZzFRbysBQhd"}
-                 "r" {:type :leaf, :by "root", :at 1548386495976, :text "\"go_plants$", :id "vv1uIOrhy6v"}
-                 "v" {:type :leaf, :by "root", :at 1548386495976, :text "\"go$", :id "NFv-sqps2N5"}
+                 "r" {:type :leaf, :by "root", :at 1548904378174, :text "\"_plants$", :id "vv1uIOrhy6v"}
+                 "v" {:type :leaf, :by "root", :at 1548904412894, :text "\"$", :id "NFv-sqps2N5"}
                 }
                }
               }
@@ -1130,7 +1122,7 @@
           :type :expr, :by "root", :at 1548386495976, :id "vuWG-Dvi0JY"
           :data {
            "T" {:type :leaf, :by "root", :at 1548386495976, :text "<<", :id "kurdSAJqL4n"}
-           "j" {:type :leaf, :by "root", :at 1548738929406, :text "\"export function ~{f-name}(~{params-list}) {\n  switchPath(`~{pathname-text}`);\n}\n", :id "oV0TzVATwg3"}
+           "j" {:type :leaf, :by "root", :at 1548904450650, :text "\"export function go~{f-name}(~{params-list}) {\n  switchPath(`~{pathname-text}`);\n}\n\nexport function path~{f-name}(~{params-list}) {\n  return `~{pathname-text}`;\n}\n", :id "oV0TzVATwg3"}
           }
          }
         }

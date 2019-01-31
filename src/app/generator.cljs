@@ -15,13 +15,13 @@
                  (re-pattern "-\\w")
                  (fn [x] (str (string/upper-case (subs x 1 2)) (subs x 2))))
                 (string/replace p "/" "_")
-                (str "go" p)
-                (string/replace p "go_plants$" "go$"))
+                (string/replace p "_plants$" "$"))
         pathname-text (string/replace
                        pathname
                        (re-pattern ":\\w+")
                        (fn [x] (<< "${~(subs x 1)}")))]
-    (<< "export function ~{f-name}(~{params-list}) {\n  switchPath(`~{pathname-text}`);\n}\n")))
+    (<<
+     "export function go~{f-name}(~{params-list}) {\n  switchPath(`~{pathname-text}`);\n}\n\nexport function path~{f-name}(~{params-list}) {\n  return `~{pathname-text}`;\n}\n")))
 
 (defn traverse-rules! [prefix base-path rules collect!]
   (doseq [rule rules]
