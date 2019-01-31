@@ -10,7 +10,8 @@
             [respo-md.comp.md :refer [comp-md]]
             [app.config :refer [dev?]]
             [app.generator :refer [generate-methods]]
-            [cljs.reader :refer [read-string]]))
+            [cljs.reader :refer [read-string]]
+            [app.generator :refer [generate-tree]]))
 
 (defcomp
  comp-container
@@ -21,12 +22,21 @@
     (div
      {:style (merge ui/row-parted {:padding 8})}
      (span {})
-     (button
-      {:style ui/button,
-       :inner-text (str "run"),
-       :on-click (fn [e d! m!]
-         (let [rules (js->clj (js/JSON.parse (:content store)) :keywordize-keys true)]
-           (d! :result (generate-methods rules))))}))
+     (div
+      {:style ui/row-middle}
+      (button
+       {:style ui/button,
+        :inner-text (str "Generate methods"),
+        :on-click (fn [e d! m!]
+          (let [rules (js->clj (js/JSON.parse (:content store)) :keywordize-keys true)]
+            (d! :result (generate-methods rules))))})
+      (=< 8 nil)
+      (button
+       {:style ui/button,
+        :inner-text (str "Generate tree"),
+        :on-click (fn [e d! m!]
+          (let [rules (js->clj (js/JSON.parse (:content store)) :keywordize-keys true)]
+            (d! :result (generate-tree rules))))})))
     (div
      {:style (merge ui/flex ui/row)}
      (textarea
