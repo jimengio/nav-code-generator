@@ -6,8 +6,6 @@
 (defn convert->variable [x]
   (string/replace x (re-pattern ":\\w+") (fn [y] (str "${" (subs y 1) "}"))))
 
-(defn has-params? [x] (re-find (re-pattern ":\\w+") x))
-
 (defn path->method [x]
   (let [result (-> x
                    (string/replace (re-pattern "/?:\\w+") (fn [y] "_"))
@@ -19,7 +17,10 @@
 
 (defn path->params [x]
   (->> (re-seq (re-pattern ":\\w+") x)
-       (map (fn [y] (let [var-name (subs y 1)] (str var-name ":Id"))))
+       (map
+        (fn [y]
+          (let [var-name (subs y 1)]
+            (str var-name (if (string/ends-with? y "Id") ":Id" ":string")))))
        (string/join ", ")))
 
 (defn generate-field [rule base-path]
@@ -32,12 +33,10 @@
         fields-string (->> (:next rule)
                            (map (fn [rule] (generate-field rule current-path)))
                            (string/join "\n"))
+        params-list (path->params current-path)
         result-obj (<<
-                    "{\n  name: ~{name-string},\n  path: ~{path-string},\n  ~{fields-string}\n}")]
-    (if (has-params? path)
-      (let [params-string (path->params path)]
-        (<< "~{prop-name}: (~{params-string}) => {\n  return ~{result-obj};\n},"))
-      (<< "~{prop-name}: ~{result-obj},"))))
+                    "{\n  name: ~{name-string},\n  path: (~{params-list}) => ~{path-string},\n  go: (~{params-list}) => switchPath(~{path-string}),\n  ~{fields-string}\n}")]
+    (<< "~{prop-name}: ~{result-obj},")))
 
 (defn generate-method [method pathname]
   (let [params (->> (re-seq (re-pattern ":\\w+") pathname))
