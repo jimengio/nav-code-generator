@@ -27,7 +27,7 @@
   (let [name-string (pr-str (or (:name rule) ""))
         path (:path rule)
         current-path (str base-path "/" (:path rule))
-        raw-path (pr-str current-path)
+        raw-path (pr-str path)
         path-string (str "`" (convert->variable current-path) "`")
         prop-name (path->method path)
         fields-string (->> (:next rule)
@@ -35,7 +35,7 @@
                            (string/join "\n"))
         params-list (path->params current-path)
         result-obj (<<
-                    "{\n  name: ~{name-string},\n  path: (~{params-list}) => ~{path-string},\n  go: (~{params-list}) => switchPath(~{path-string}),\n  ~{fields-string}\n}")]
+                    "{\n  name: ~{name-string},\n  raw: ~{raw-path},\n  path: (~{params-list}) => ~{path-string},\n  go: (~{params-list}) => switchPath(~{path-string}),\n  ~{fields-string}\n}")]
     (<< "~{prop-name}: ~{result-obj},")))
 
 (defn generate-method [method pathname]

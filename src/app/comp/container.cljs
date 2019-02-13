@@ -4,14 +4,15 @@
             [respo-ui.core :as ui]
             [respo.core
              :refer
-             [defcomp cursor-> action-> mutation-> <> div button textarea span]]
+             [defcomp cursor-> action-> mutation-> <> a div button textarea span]]
             [respo.comp.space :refer [=<]]
             [reel.comp.reel :refer [comp-reel]]
             [respo-md.comp.md :refer [comp-md]]
             [app.config :refer [dev?]]
             [app.generator :refer [generate-methods]]
             [cljs.reader :refer [read-string]]
-            [app.generator :refer [generate-tree]]))
+            [app.generator :refer [generate-tree]]
+            ["copy-to-clipboard" :as copy!]))
 
 (defcomp
  comp-container
@@ -24,6 +25,16 @@
      (span {})
      (div
       {:style ui/row-middle}
+      (a
+       {:style ui/link,
+        :inner-text "Goto Prettier",
+        :href "https://prettier.io/playground",
+        :target "_blank",
+        :on-click (fn [e d! m!]
+          (.preventDefault (:event e))
+          (copy! (:result store))
+          (js/window.open "https://prettier.io/playground"))})
+      (=< 8 nil)
       (button
        {:style ui/button,
         :inner-text (str "Generate methods"),
