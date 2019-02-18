@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@jimengio/router-code-generator@^0.1.0-a2":
+  version "0.1.0-a2"
+  resolved "https://registry.yarnpkg.com/@jimengio/router-code-generator/-/router-code-generator-0.1.0-a2.tgz#2412c1f4722d8eefc7086f1e2b27ce437136c1c9"
+  integrity sha512-umqjUjSkhbAk0Onun+0ZxnK//gny7F41iEzbavHYLnSL7yqbXnn+85nft9YLIlAPjKalAusx5SoXbxCtH09VIA==
+
 asn1.js@^4.0.0:
   version "4.9.2"
   resolved "https://registry.yarnpkg.com/asn1.js/-/asn1.js-4.9.2.tgz#8117ef4f7ed87cd8f89044b5bff97ac243a16c9a"
