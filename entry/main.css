@@ -29,3 +29,7 @@ body * {
 ::-webkit-resizer{
   background-color:transparent;
 }
+
+button:active {
+  transform: scale(1.08);
+}

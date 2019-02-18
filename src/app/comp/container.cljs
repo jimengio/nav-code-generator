@@ -9,7 +9,6 @@
             [reel.comp.reel :refer [comp-reel]]
             [respo-md.comp.md :refer [comp-md]]
             [app.config :refer [dev?]]
-            [app.generator :refer [generate-methods]]
             [cljs.reader :refer [read-string]]
             [app.generator :refer [generate-tree]]
             ["copy-to-clipboard" :as copy!]))
@@ -34,13 +33,6 @@
           (.preventDefault (:event e))
           (copy! (:result store))
           (js/window.open "https://prettier.io/playground"))})
-      (=< 8 nil)
-      (button
-       {:style ui/button,
-        :inner-text (str "Generate methods"),
-        :on-click (fn [e d! m!]
-          (let [rules (js->clj (js/JSON.parse (:content store)) :keywordize-keys true)]
-            (d! :result (generate-methods rules))))})
       (=< 8 nil)
       (button
        {:style ui/button,
