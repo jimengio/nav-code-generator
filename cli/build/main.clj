@@ -12,17 +12,17 @@
   (shadow/release :client)
   (shadow/compile :page)
   (shadow/compile :upload)
-  (sh! "release=true cdn=true node target/page.js")
+  (sh! "release=true cdn=true node -r esm target/page.js")
   (sh! "cp entry/manifest.json dist/"))
 
 (defn build []
   (sh! "rm -rf dist/*")
   (shadow/release :client)
   (shadow/compile :page)
-  (sh! "release=true node target/page.js")
+  (sh! "release=true node -r esm target/page.js")
   (sh! "cp entry/manifest.json dist/"))
 
 (defn page []
   (shadow/compile :page)
-  (sh! "node target/page.js")
+  (sh! "node -r esm target/page.js")
   (sh! "cp entry/manifest.json target/"))
