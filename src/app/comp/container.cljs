@@ -10,7 +10,6 @@
             [respo-md.comp.md :refer [comp-md]]
             [app.config :refer [dev?]]
             [cljs.reader :refer [read-string]]
-            [app.generator :refer [generate-tree]]
             ["copy-to-clipboard" :as copy!]
             ["@jimengio/router-code-generator" :refer [generateTree]]))
 
@@ -40,7 +39,6 @@
         :inner-text (str "Generate tree"),
         :on-click (fn [e d! m!]
           (let [rules-json (js/JSON.parse (:content store))]
-            (comment d! :result (generate-tree (js->clj rules-json :keywordize-keys true)))
             (d! :result (generateTree rules-json))))})))
     (div
      {:style (merge ui/flex ui/row)}
