@@ -31,7 +31,6 @@
         :target "_blank",
         :on-click (fn [e d! m!]
           (.preventDefault (:event e))
-          (copy! (:result store))
           (js/window.open "https://prettier.io/playground"))})
       (=< 8 nil)
       (button
@@ -39,14 +38,23 @@
         :inner-text (str "Generate tree"),
         :on-click (fn [e d! m!]
           (let [rules-json (js/JSON.parse (:content store))]
-            (d! :result (generateTree rules-json))))})))
+            (d! :result (generateTree rules-json))))})
+      (=< 8 nil)
+      (button
+       {:style ui/button,
+        :inner-text (str "Copy"),
+        :on-click (fn [e d! m!] (copy! (:result store)))})))
     (div
      {:style (merge ui/flex ui/row)}
      (textarea
       {:value (:content store),
        :placeholder "Content",
        :style (merge ui/flex ui/textarea {:font-family ui/font-code}),
-       :on-input (action-> :content (:value %e))})
+       :on-input (action-> :content (:value %e)),
+       :on-keydown (fn [e d! m!]
+         (if (and (= 13 (:keycode e)) (.-metaKey (:event e)))
+           (let [rules-json (js/JSON.parse (:content store))]
+             (d! :result (generateTree rules-json)))))})
      (textarea
       {:value (:result store),
        :placeholder "Content",
