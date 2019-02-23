@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@jimengio/router-code-generator@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@jimengio/router-code-generator/-/router-code-generator-0.1.0.tgz#5209b3345290eb5caed909a29781643886136b7d"
-  integrity sha512-BtDxTSF3BASDwsn7BcDEsgcJ5Zf71cJ1jMIVYnNKVcb3PwDsF4f+iRgIUiIGjJLvl9p02E7IS9F7FbZm2wBT5A==
+"@jimengio/router-code-generator@^0.1.1-a1":
+  version "0.1.1-a1"
+  resolved "https://registry.yarnpkg.com/@jimengio/router-code-generator/-/router-code-generator-0.1.1-a1.tgz#639626362e793b41c530babc00d9ecbd0f2c4f82"
+  integrity sha512-J7T+Vwezpr93GAOr3D5tdV+qqFp5q1aBdbwh8250MqLj2qlMsNcr7eefF15fdYE7fLCaQe3oSWpDTjrN/pIc3g==
 
 asn1.js@^4.0.0:
   version "4.9.2"
@@ -280,11 +280,6 @@ elliptic@^6.0.0:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
-
-esm@^3.2.5:
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/esm/-/esm-3.2.5.tgz#036e410a2373ea81bfe62166c419ca0b0cf85c09"
-  integrity sha512-rukU6Nd3agbHQCJWV4rrlZxqpbO3ix8qhUxK1BhKALGS2E465O0BFwgCOqJjNnYfO/I2MwpUBmPsW8DXoe8tcA==
 
 eventemitter3@1.x.x:
   version "1.2.0"
@@ -672,10 +667,10 @@ shadow-cljs-jar@1.3.0:
   resolved "https://registry.yarnpkg.com/shadow-cljs-jar/-/shadow-cljs-jar-1.3.0.tgz#e25c4fa57c0b405096250884b164c112654a06a3"
   integrity sha512-KReNVgFVM2ZPPGCP8rsCPqtlee/+SwXyoeEqbAXBO7jlpoNnNee2x4fiRg/Pr/vXGEkV/Ez5l4qdNSU1Na+1Jg==
 
-shadow-cljs@^2.8.2:
-  version "2.8.2"
-  resolved "https://registry.yarnpkg.com/shadow-cljs/-/shadow-cljs-2.8.2.tgz#9ef11b0e548c87706241820a4afeab98ee68178e"
-  integrity sha512-tqxraLiOx7O34fq0c5eviCLMGwnwL7iTyfiLfa8W2CGNc4lmQuPLcfupM7NE/mz1D+feMpFkFtuvPcd/kpF39A==
+shadow-cljs@^2.8.8:
+  version "2.8.8"
+  resolved "https://registry.yarnpkg.com/shadow-cljs/-/shadow-cljs-2.8.8.tgz#7f373881266266559f41828a67056e8123e251e4"
+  integrity sha512-qbIpgB6NCScV5bsuKJdOuR/1wmFsfHbCsGNNKBEh11Rn7xCH0PTUTQTZWNHn5/HtfsTL1QUJE4VwtLIduyEV4A==
   dependencies:
     mkdirp "^0.5.1"
     node-libs-browser "^2.0.0"
